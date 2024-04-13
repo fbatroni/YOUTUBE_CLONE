@@ -7,17 +7,17 @@ const Feed = () => {
 
   const url = `search?part=snippet&q=${category}`;
 
-  const fetchFeedData = async () => {
-    const response = await fetchFromApi(url);
-    setData(response);
-    console.log(response);
-  };
-
   useEffect(() => {
+    const fetchFeedData = async () => {
+      try {
+        const response = await fetchFromApi(url);
+        setData(response);
+      } catch (error) {
+        console.log(error);
+      }
+    };
     fetchFeedData();
-  }, [category]);
-
-  console.log("data:: ", data);
+  }, [url]);
 
   return (
     <>
