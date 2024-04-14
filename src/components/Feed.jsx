@@ -22,8 +22,10 @@ const Feed = () => {
 
   return (
     <>
-    <SideBar selectedCategory={category} setSelectedCategory={setCategory} />
-    {data.items && data.items.map((item) => <h1 key={item.id.videoId}>{item.id.videoId}</h1>)}
+      {data.items &&
+        data.items.map((item) => (
+          <h1 key={item.id.videoId}>{item.id.videoId}</h1>
+        ))}
     </>
   );
 };
