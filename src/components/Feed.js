@@ -5,9 +5,9 @@ const Feed = () => {
   const [category, setCategory] = useState("new");
   const [data, setData] = useState({});
 
-  const url = `search?part=snippet&q=${category}`;
-
   useEffect(() => {
+    const url = `search?part=snippet&q=${category}`;
+
     const fetchFeedData = async () => {
       try {
         const response = await fetchFromApi(url);
@@ -17,14 +17,10 @@ const Feed = () => {
       }
     };
     fetchFeedData();
-  }, [url]);
+  }, [category]);
 
   return (
-    <>
-      {data.items.map((item) => (
-        <h1>{item.id.videoId}</h1>
-      ))}
-    </>
+    <>{data.items && data.items.map((item) => <h1>{item.id.videoId}</h1>)}</>
   );
 };
 
