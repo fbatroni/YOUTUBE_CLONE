@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import fetchFromApi from "../utils/fetch-from-api";
+import SideBar from "./SideBar";
 
 const Feed = () => {
   const [category, setCategory] = useState("new");
@@ -20,7 +21,10 @@ const Feed = () => {
   }, [category]);
 
   return (
-    <>{data.items && data.items.map((item) => <h1>{item.id.videoId}</h1>)}</>
+    <>
+    <SideBar selectedCategory={category} setSelectedCategory={setCategory} />
+    {data.items && data.items.map((item) => <h1 key={item.id.videoId}>{item.id.videoId}</h1>)}
+    </>
   );
 };
 
