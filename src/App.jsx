@@ -1,17 +1,22 @@
-import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./Home";
-import SearchResults from './components/SearchResults';
+import { Box } from "@mui/material";
+import { appWrapper } from "@styles/styles";
+import AppNavMenu from "@navigation/AppNavMenu";
+import AppContentArea from "@components/AppContentArea";
+import { useState } from "react";
 
-function App() {
+const App = () => {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
+
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/search/:searchTerm" element={<SearchResults />} />
-      </Routes>
-    </BrowserRouter>
+    <Box sx={appWrapper}>
+      <AppNavMenu handleDrawerToggle={handleDrawerToggle} />
+      <AppContentArea isOpen={mobileOpen} />
+    </Box>
   );
-}
+};
 
 export default App;
