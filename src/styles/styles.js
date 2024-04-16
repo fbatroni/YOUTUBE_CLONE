@@ -8,6 +8,7 @@ export const appWrapper = {
   height: "100vh",
   overflow: "hidden",
 };
+
 /***********************
  * Navigation
  ************************/

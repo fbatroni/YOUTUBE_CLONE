@@ -14,9 +14,9 @@ import {
   hideOnMobile,
 } from "@styles/styles";
 import SearchBar from "./SearchBar";
-import UserProfile from "@components/UserProfile";
-import NotificationsList from "@components/NotificationsList";
-import Upload from "@components/Upload";
+import UserProfile from "../UserProfile";
+import NotificationsList from "../NotificationsList";
+import Upload from "../Upload";
 
 const AppNavMenu = (props) => {
   return (
